@@ -1,7 +1,7 @@
 def fizzbuzz(param):
-    if param == 1:
-        return "1"
+    if param == 3:
+        return "Fizz"
     elif param == 2:
         return "2"
     else:
-        return "Fizz"
+        return "1"

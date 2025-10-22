@@ -16,11 +16,12 @@ price_rules = [
 class Checkout:
     def __init__(self):
         self.total = 0
+        self.price_rules = price_rules
         self.codes = list()
 
     def scan(self, code):
         self.codes.append(code)
-        self.total = sum(f(self.codes) for f in price_rules)
+        self.total = sum(f(self.codes) for f in self.price_rules)
 
 
 

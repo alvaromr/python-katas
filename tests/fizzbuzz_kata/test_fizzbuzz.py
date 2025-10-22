@@ -13,3 +13,6 @@ def test_three() -> None:
 def test_five() -> None:
     assert fizzbuzz(5) == "Buzz"
     assert fizzbuzz(10) == "Buzz"
+
+def test_fifteen() -> None:
+    assert fizzbuzz(15) == "FizzBuzz"

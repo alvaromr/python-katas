@@ -14,13 +14,15 @@ class PriceRule:
 
 class Checkout:
     def __init__(self, price_rules):
-        self.total = 0
         self.price_rules = price_rules
         self.codes = list()
 
     def scan(self, code):
         self.codes.append(code)
-        self.total = sum(rule.apply(self.codes) for rule in self.price_rules)
+
+    @property
+    def total(self):
+        return sum(rule.apply(self.codes) for rule in self.price_rules)
 
 
 

@@ -1,0 +1,76 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pythonkatas"
+dynamic = ["version"]
+description = 'This project serves as a collection of coding exercises and solutions in Python, aimed at improving programming skills and understanding of various concepts.'
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Álvaro Martín Rodríguez", email = "alvaro.martin@radmas.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = []
+
+[project.urls]
+Documentation = "https://github.com/alvaro.martin/pythonkatas#readme"
+Issues = "https://github.com/alvaro.martin/pythonkatas/issues"
+Source = "https://github.com/alvaro.martin/pythonkatas"
+
+[tool.hatch.version]
+path = "src/pythonkatas/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/pythonkatas tests}"
+
+[tool.hatch.envs.dev]
+path = ".venv/dev"
+dependencies = [
+  "pytest",
+  "pytest-cov",
+  "pytest-asyncio",
+]
+[tool.hatch.envs.dev.scripts]
+test = "pytest {args}"
+
+[tool.coverage.run]
+source_pkgs = ["pythonkatas", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/pythonkatas/__about__.py",
+]
+
+[tool.coverage.paths]
+pythonkatas = ["src/pythonkatas", "*/pythonkatas/src/pythonkatas"]
+tests = ["tests", "*/pythonkatas/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+pythonpath = ["src"]

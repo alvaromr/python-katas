@@ -1,15 +1,14 @@
 def fizzbuzz(param):
-    result = str(param)
+    result = ""
 
     rules = [
-        lambda n: fizzbuzz_rule(n, divider=15, transformed="FizzBuzz"),
-        lambda n: fizzbuzz_rule(n, divider=3, transformed="Fizz"),
-        lambda n: fizzbuzz_rule(n, divider=5, transformed="Buzz"),
+        lambda p, n: fizzbuzz_rule(p, divider=3, transformed="Fizz"),
+        lambda p, n: fizzbuzz_rule(p, divider=5, transformed="Buzz"),
     ]
     for rule in rules:
-        result = rule(result)
-    return result
+        result += rule(param, result)
+    return result if result != "" else str(param)
 
 
-def fizzbuzz_rule(param: str, divider, transformed) -> str:
-    return transformed if param.isdigit() and int(param) % divider == 0 or str(divider) in param else param
+def fizzbuzz_rule(param: int, divider, transformed) -> str:
+    return transformed if param % divider == 0 or str(divider) in str(param) else ""

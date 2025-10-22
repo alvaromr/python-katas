@@ -12,10 +12,6 @@ class PriceRule:
         return total_base - discount
 
 
-def discounted_price_rule(code, base_price, discount_amount, discount_per):
-    rule = PriceRule(code, base_price, discount_amount, discount_per)
-    return rule
-
 class Checkout:
     def __init__(self, price_rules):
         self.total = 0

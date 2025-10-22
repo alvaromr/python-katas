@@ -1,5 +1,7 @@
 def fizzbuzz(param):
     if param == 3:
         return "Fizz"
+    if param == 5:
+        return "Buzz"
     else:
         return str(param)

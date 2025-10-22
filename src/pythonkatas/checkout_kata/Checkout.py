@@ -7,20 +7,20 @@ class Checkout:
         self.codes.append(code)
         self.total = 0
 
-        a_price = self.price_a("A")
+        a_price = self.price_a(code="A", base_price=50, discount_amount=20, discount_per=3)
         self.total += a_price
 
-        a_price = self.price_b("B")
+        a_price = self.price_b(code="B", base_price=30, discount_amount=15, discount_per=2)
         self.total += a_price
 
-    def price_b(self, code) -> int:
+    def price_b(self, code, base_price, discount_amount, discount_per) -> int:
         scan_count = self.codes.count(code)
-        base_price = 30 * scan_count
-        discount = 15 * (scan_count // 2)
+        base_price = base_price * scan_count
+        discount = discount_amount * (scan_count // discount_per)
         return base_price - discount
 
-    def price_a(self, code) -> int:
+    def price_a(self, code, base_price, discount_amount, discount_per) -> int:
         scan_count = self.codes.count(code)
-        base_price = 50 * scan_count
-        discount = 20 * (scan_count // 3)
+        base_price = base_price * scan_count
+        discount = discount_amount * (scan_count // discount_per)
         return base_price - discount

@@ -1,9 +1,9 @@
 def fizzbuzz(param):
-    if param % 15 == 0:
-        return "FizzBuzz"
+    result = str(param)
     if param % 3 == 0:
-        return "Fizz"
+        result = "Fizz"
     if param % 5 == 0:
-        return "Buzz"
-    else:
-        return str(param)
+        result = "Buzz"
+    if param % 15 == 0:
+        result = "FizzBuzz"
+    return result

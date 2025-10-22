@@ -1,10 +1,10 @@
 def fizzbuzz(param):
     result = str(param)
-    result = rule(param, result, divider=3, transformed="Fizz")
-    result = rule(param, result, divider=5, transformed="Buzz")
-    result = rule(param, result, divider=15, transformed="FizzBuzz")
+    result = rule(result, divider=15, transformed="FizzBuzz")
+    result = rule(result, divider=3, transformed="Fizz")
+    result = rule(result, divider=5, transformed="Buzz")
     return result
 
 
-def rule(param, n: str, divider, transformed) -> str:
-    return transformed if param % divider == 0 else n
+def rule(param: str, divider, transformed) -> str:
+    return transformed if param.isdigit() and int(param) % divider == 0 else param

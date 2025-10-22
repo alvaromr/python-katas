@@ -1,4 +1,4 @@
-from pythonkatas.checkout_kata.Checkout import Checkout
+from pythonkatas.checkout_kata.Checkout import Checkout, discounted_price_rule
 
 
 def test_no_items() -> None:
@@ -47,9 +47,15 @@ def test_totals():
     assert 190 == price("AAABBD")
     assert 190 == price("DABABA")
 
+price_rules = [
+    discounted_price_rule(code="A", base_price=50, discount_amount=20, discount_per=3),
+    discounted_price_rule(code="B", base_price=30, discount_amount=15, discount_per=2),
+    discounted_price_rule(code="C", base_price=20, discount_amount=0, discount_per=1),
+    discounted_price_rule(code="D", base_price=15, discount_amount=0, discount_per=1),
+]
 
 def price(codes):
-    checkout = Checkout()
+    checkout = Checkout(price_rules)
     for code in codes:
         checkout.scan(code)
     return checkout.total

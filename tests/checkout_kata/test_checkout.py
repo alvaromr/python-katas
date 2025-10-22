@@ -1,6 +1,6 @@
 class Checkout:
-    pass
-
+    def __init__(self):
+        self.total = 0
 
 def test_no_items() -> None:
     checkout = Checkout()

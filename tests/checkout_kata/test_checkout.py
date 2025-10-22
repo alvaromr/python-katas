@@ -25,6 +25,11 @@ def test_scan_c() -> None:
     assert 40 == price("CC")
     assert 60 == price("CCC")
 
+def test_scan_d() -> None:
+    assert 15 == price("D")
+    assert 30 == price("DD")
+    assert 45 == price("DDD")
+
 
 def price(codes):
     checkout = Checkout()

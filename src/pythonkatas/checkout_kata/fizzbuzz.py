@@ -5,7 +5,8 @@ def fizzbuzz(param):
         lambda n: division_rule(n, divider=15, transformed="FizzBuzz"),
         lambda n: division_rule(n, divider=3, transformed="Fizz"),
         lambda n: division_rule(n, divider=5, transformed="Buzz"),
-        lambda n: digit_rule(n, digit=3, transformed="Fizz")
+        lambda n: digit_rule(n, digit=3, transformed="Fizz"),
+        lambda n: digit_rule(n, digit=5, transformed="Buzz")
     ]
     for rule in rules:
         result = rule(result)

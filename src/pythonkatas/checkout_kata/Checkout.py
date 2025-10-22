@@ -5,10 +5,12 @@ class Checkout:
 
     def scan(self, code):
         self.codes.append(code)
+        self.total = 0
+
         scan_count = self.codes.count("A")
         base_price = 50 * scan_count
         discount = 20 * (scan_count // 3)
-        self.total = base_price - discount
+        self.total += base_price - discount
 
         scan_count = self.codes.count("B")
         base_price = 30 * scan_count

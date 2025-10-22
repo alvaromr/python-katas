@@ -13,6 +13,9 @@ class Checkout:
         a_price = self.discounted_price_for(code="B", base_price=30, discount_amount=15, discount_per=2)
         self.total += a_price
 
+        a_price = self.discounted_price_for(code="C", base_price=20, discount_amount=0, discount_per=1)
+        self.total += a_price
+
     def discounted_price_for(self, code, base_price, discount_amount, discount_per) -> int:
         scan_count = self.codes.count(code)
         base_price = base_price * scan_count

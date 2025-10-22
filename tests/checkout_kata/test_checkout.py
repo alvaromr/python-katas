@@ -1,6 +1,5 @@
-class Checkout:
-    def __init__(self):
-        self.total = 0
+from pythonkatas.checkout_kata.Checkout import Checkout
+
 
 def test_no_items() -> None:
     checkout = Checkout()

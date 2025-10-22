@@ -2,23 +2,23 @@ from pythonkatas.checkout_kata.Checkout import Checkout
 
 
 def test_no_items() -> None:
-    checkout = Checkout()
-    assert 0 == checkout.total
+    assert 0 == price("")
+
 
 def test_scan_one_a() -> None:
-    checkout = Checkout()
-    checkout.scan('A')
-    assert 50 == checkout.total
+    assert 50 == price("A")
+
 
 def test_scan_two_a() -> None:
-    checkout = Checkout()
-    checkout.scan('A')
-    checkout.scan('A')
-    assert 100 == checkout.total
+    assert 100 == price("AA")
+
 
 def test_scan_three_a() -> None:
+    assert 130 == price("AAA")
+
+
+def price(codes):
     checkout = Checkout()
-    checkout.scan('A')
-    checkout.scan('A')
-    checkout.scan('A')
-    assert 130 == checkout.total
+    for code in codes:
+        checkout.scan(code)
+    return checkout.total

@@ -3,4 +3,4 @@ class Checkout:
         self.total = 0
 
     def scan(self, code):
-        self.total = 50
+        self.total += 50

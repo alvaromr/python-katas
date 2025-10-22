@@ -9,3 +9,9 @@ def test_two() -> None:
 
 def test_three() -> None:
     assert fizzbuzz(3) == "Fizz"
+
+def test_four() -> None:
+    assert fizzbuzz(4) == "4"
+
+def test_five() -> None:
+    assert fizzbuzz(5) == "Buzz"

@@ -17,6 +17,13 @@ def test_scan_a() -> None:
 def test_scan_b() -> None:
     assert 30 == price("B")
     assert 45 == price("BB")
+    assert 75 == price("BBB")
+
+
+def test_scan_c() -> None:
+    assert 20 == price("C")
+    assert 40 == price("CC")
+    assert 60 == price("CCC")
 
 
 def price(codes):

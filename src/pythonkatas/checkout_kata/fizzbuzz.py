@@ -1,8 +1,13 @@
 def fizzbuzz(param):
     result = str(param)
-    result = rule(result, divider=15, transformed="FizzBuzz")
-    result = rule(result, divider=3, transformed="Fizz")
-    result = rule(result, divider=5, transformed="Buzz")
+
+    rules = [
+        lambda n: rule(n, divider=15, transformed="FizzBuzz"),
+        lambda n: rule(n, divider=3, transformed="Fizz"),
+        lambda n: rule(n, divider=5, transformed="Buzz")
+    ]
+    for r in rules:
+        result = r(result)
     return result
 
 

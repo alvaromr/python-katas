@@ -6,15 +6,15 @@ def test_number() -> None:
     assert fizzbuzz(2) == "2"
     assert fizzbuzz(4) == "4"
 
-def test_three() -> None:
+def test_fizz() -> None:
     assert fizzbuzz(3) == "Fizz"
     assert fizzbuzz(6) == "Fizz"
     assert fizzbuzz(13) == "Fizz"
 
-def test_five() -> None:
+def test_buzz() -> None:
     assert fizzbuzz(5) == "Buzz"
     assert fizzbuzz(10) == "Buzz"
     assert fizzbuzz(52) == "Buzz"
 
-def test_fifteen() -> None:
+def test_fizzbuzz() -> None:
     assert fizzbuzz(15) == "FizzBuzz"

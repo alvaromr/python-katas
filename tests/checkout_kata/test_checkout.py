@@ -14,6 +14,11 @@ def test_scan_a() -> None:
     assert 260 == price("AAAAAA")
 
 
+def test_scan_b() -> None:
+    assert 30 == price("B")
+    assert 45 == price("BB")
+
+
 def price(codes):
     checkout = Checkout()
     for code in codes:

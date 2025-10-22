@@ -9,3 +9,9 @@ def test_scan_one_a() -> None:
     checkout = Checkout()
     checkout.scan('A')
     assert 50 == checkout.total
+
+def test_scan_two_a() -> None:
+    checkout = Checkout()
+    checkout.scan('A')
+    checkout.scan('A')
+    assert 100 == checkout.total

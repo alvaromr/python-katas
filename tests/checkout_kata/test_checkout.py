@@ -10,6 +10,8 @@ def test_scan_a() -> None:
     assert 100 == price("AA")
     assert 130 == price("AAA")
     assert 180 == price("AAAA")
+    assert 230 == price("AAAAA")
+    assert 260 == price("AAAAAA")
 
 
 def price(codes):

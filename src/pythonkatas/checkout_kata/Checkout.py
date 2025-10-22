@@ -14,7 +14,7 @@ class PriceRule:
 
 def discounted_price_rule(code, base_price, discount_amount, discount_per):
     rule = PriceRule(code, base_price, discount_amount, discount_per)
-    return rule.apply
+    return rule
 
 class Checkout:
     def __init__(self, price_rules):
@@ -24,7 +24,7 @@ class Checkout:
 
     def scan(self, code):
         self.codes.append(code)
-        self.total = sum(f(self.codes) for f in self.price_rules)
+        self.total = sum(rule.apply(self.codes) for rule in self.price_rules)
 
 
 

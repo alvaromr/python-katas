@@ -10,9 +10,11 @@ class Checkout:
         scan_count = self.codes.count("A")
         base_price = 50 * scan_count
         discount = 20 * (scan_count // 3)
-        self.total += base_price - discount
+        a_price = base_price - discount
+        self.total += a_price
 
         scan_count = self.codes.count("B")
         base_price = 30 * scan_count
         discount = 15 * (scan_count // 2)
-        self.total += base_price - discount
+        a_price = base_price - discount
+        self.total += a_price

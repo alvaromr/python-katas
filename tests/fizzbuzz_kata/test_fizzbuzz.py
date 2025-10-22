@@ -1,5 +1,4 @@
-def fizzbuzz(param):
-    return "1"
+from pythonkatas.checkout_kata.fizzbuzz import fizzbuzz
 
 
 def test_one() -> None:

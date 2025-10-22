@@ -15,3 +15,10 @@ def test_scan_two_a() -> None:
     checkout.scan('A')
     checkout.scan('A')
     assert 100 == checkout.total
+
+def test_scan_three_a() -> None:
+    checkout = Checkout()
+    checkout.scan('A')
+    checkout.scan('A')
+    checkout.scan('A')
+    assert 130 == checkout.total

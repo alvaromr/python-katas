@@ -4,6 +4,7 @@ def fizzbuzz(number: int):
     rules = [
         lambda n, r: fizzbuzz_rule(n, 3, "Fizz"),
         lambda n, r: fizzbuzz_rule(n, 5, "Buzz"),
+        lambda n, r: fizzbuzz_rule(n, 7, "Wozz"),
         lambda n, r: default_rule(n, r),
     ]
     for rule in rules:

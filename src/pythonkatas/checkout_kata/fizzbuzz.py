@@ -1,20 +1,32 @@
-def fizzbuzz(number: int):
-    result = ""
+from abc import ABC, abstractmethod
+from typing import Sequence
 
-    rules = [
-        lambda n, r: fizzbuzz_rule(n, 3, "Fizz"),
-        lambda n, r: fizzbuzz_rule(n, 5, "Buzz"),
-        lambda n, r: fizzbuzz_rule(n, 7, "Wozz"),
-        lambda n, r: default_rule(n, r),
+
+def fizzbuzz(number: int):
+    rules: Sequence[Rule] = [
+        WordRule(3, "Fizz"),
+        WordRule(5, "Buzz"),
+        WordRule(7, "Wozz"),
+        DefaultRule(),
     ]
+    result = ""
     for rule in rules:
-        result += rule(number, result)
+        result += rule.apply(number, result)
     return result
 
+class Rule(ABC):
+    @abstractmethod
+    def apply(self, number: int, result: str) -> str:
+        pass
 
-def default_rule(number: int, result: str) -> str:
-    return str(number) if result == "" else ""
+class WordRule(Rule):
+    def __init__(self, number: int, word: str) -> None:
+        self.number = number
+        self.word = word
 
+    def apply(self, number: int, result: str) -> str:
+        return self.word if number % self.number == 0 or str(self.number) in str(number) else ""
 
-def fizzbuzz_rule(number: int, divider: int, transformed: str) -> str:
-    return transformed if number % divider == 0 or str(divider) in str(number) else ""
+class DefaultRule(Rule):
+    def apply(self, number: int, result: str) -> str:
+        return str(number) if result == "" else ""

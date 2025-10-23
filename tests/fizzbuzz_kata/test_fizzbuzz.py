@@ -19,3 +19,7 @@ def test_buzz() -> None:
 def test_fizzbuzz() -> None:
     assert fizzbuzz(15) == "FizzBuzz"
     assert fizzbuzz(51) == "FizzBuzz"
+
+def test_wozz():
+    assert fizzbuzz(7) == "Wozz"
+    assert fizzbuzz(71) == "Wozz"

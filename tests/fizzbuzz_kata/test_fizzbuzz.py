@@ -23,3 +23,11 @@ def test_fizzbuzz() -> None:
 def test_wozz():
     assert fizzbuzz(7) == "Wozz"
     assert fizzbuzz(71) == "Wozz"
+
+def test_buzzwozz():
+    assert fizzbuzz(70) == "BuzzWozz"
+    assert fizzbuzz(140) == "BuzzWozz"
+
+def test_fizzbuzzwozz():
+    assert fizzbuzz(75) == "FizzBuzzWozz"
+    assert fizzbuzz(375) == "FizzBuzzWozz"

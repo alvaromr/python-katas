@@ -1,19 +1,19 @@
-def fizzbuzz(param):
+def fizzbuzz(number: int):
     result = ""
 
     rules = [
-        lambda p, n: fizzbuzz_rule(p, divider=3, transformed="Fizz"),
-        lambda p, n: fizzbuzz_rule(p, divider=5, transformed="Buzz"),
-        lambda p, n: default_rule(param, result),
+        lambda n, r: fizzbuzz_rule(n, 3, "Fizz"),
+        lambda n, r: fizzbuzz_rule(n, 5, "Buzz"),
+        lambda n, r: default_rule(n, r),
     ]
     for rule in rules:
-        result += rule(param, result)
+        result += rule(number, result)
     return result
 
 
-def default_rule(param, result: str) -> str:
-    return str(param) if result == "" else ""
+def default_rule(number: int, result: str) -> str:
+    return str(number) if result == "" else ""
 
 
-def fizzbuzz_rule(param: int, divider, transformed) -> str:
-    return transformed if param % divider == 0 or str(divider) in str(param) else ""
+def fizzbuzz_rule(number: int, divider: int, transformed: str) -> str:
+    return transformed if number % divider == 0 or str(divider) in str(number) else ""

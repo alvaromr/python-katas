@@ -54,6 +54,23 @@ price_rules = [
     PriceRule("D", 15, 0, 1),
 ]
 
+def test_build_price_rules():
+    assert build_price_rules('') == []
+    assert build_price_rules('A costs 50 and you get 3 for 130\nB is 30 but you can get 15 discount for the second\nC costs 20\nDcosts 15') == price_rules
+    assert build_price_rules('A costs 50, but if you buy 3 you save 20\nB costs 30, but the second one has a 15 discount\nC costs 20\nD costs 15') == price_rules
+    assert build_price_rules('A costs 50, but if you buy 3 you save 40% in the last item\nB costs 30, but the second one has a 15 discount\nC costs 20\nD costs C minus 5') == price_rules
+    assert build_price_rules(
+"""
+Item   Unit      Special
+       Price     Price
+--------------------------
+  A     50       3 for 130
+  B     30       2 for 45
+  C     20
+  D     15
+"""
+    ) == price_rules
+
 def price(codes):
     checkout = Checkout(price_rules)
     for code in codes:

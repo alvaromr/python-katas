@@ -24,7 +24,11 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dependencies = []
+dependencies = [
+    "google-genai~=1.46.0",
+    "python-dotenv>=1.0",
+    "pydantic~=2.12.3",
+]
 
 [project.urls]
 Documentation = "https://github.com/alvaro.martin/pythonkatas#readme"

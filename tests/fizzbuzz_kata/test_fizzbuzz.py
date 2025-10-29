@@ -1,4 +1,4 @@
-from pythonkatas.checkout_kata.fizzbuzz import fizzbuzz
+from pythonkatas.fizzbuzz_kata.fizzbuzz import fizzbuzz
 
 
 def test_number() -> None:

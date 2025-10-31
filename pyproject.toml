@@ -24,7 +24,10 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dependencies = []
+dependencies = [
+    "fastmcp",
+    "pydantic"
+]
 
 [project.urls]
 Documentation = "https://github.com/alvaro.martin/pythonkatas#readme"
@@ -50,6 +53,9 @@ dependencies = [
 ]
 [tool.hatch.envs.dev.scripts]
 test = "pytest {args}"
+fizzbuzz-mcp-server = "python src/pythonkatas/fizzbuzz_kata/fizzbuzz_mcp.py"
+fizzbuzz-fastmcp-server = "fastmcp run src/pythonkatas/fizzbuzz_kata/fizzbuzz_mcp.py:mcp --transport http --port 6278"
+mcp-inspect="npx @modelcontextprotocol/inspector"
 
 [tool.coverage.run]
 source_pkgs = ["pythonkatas", "tests"]

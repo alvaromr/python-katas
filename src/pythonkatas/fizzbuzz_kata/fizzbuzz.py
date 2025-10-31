@@ -1,8 +1,7 @@
-import dataclasses
 from typing import Sequence
+from pydantic import BaseModel
 
-@dataclasses.dataclass
-class Rule:
+class Rule(BaseModel):
     divisor: int
     word: str
 

@@ -1,6 +1,6 @@
 import pytest
 
-from pythonkatas.fizzbuzz_kata.fizzbuzz import fizzbuzz
+from pythonkatas.fizzbuzz_kata.fizzbuzz import fizzbuzz, Rule
 
 
 @pytest.mark.parametrize("number", [1, 2, 4])
@@ -30,3 +30,10 @@ def test_buzzwozz(number):
 @pytest.mark.parametrize("number", [75, 375])
 def test_fizzbuzzwozz(number):
     assert fizzbuzz(number) == "FizzBuzzWozz"
+
+def test_custom_rules():
+    custom_rules = [
+        Rule(divisor=3, word="Banana"),
+        Rule(divisor=5, word="Apple"),
+    ]
+    assert fizzbuzz(15, custom_rules) == "BananaApple"

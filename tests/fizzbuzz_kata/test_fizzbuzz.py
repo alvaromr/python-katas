@@ -1,33 +1,32 @@
+import pytest
+
 from pythonkatas.fizzbuzz_kata.fizzbuzz import fizzbuzz
 
 
-def test_number() -> None:
-    assert fizzbuzz(1) == "1"
-    assert fizzbuzz(2) == "2"
-    assert fizzbuzz(4) == "4"
+@pytest.mark.parametrize("number", [1, 2, 4])
+def test_number(number) -> None:
+    assert fizzbuzz(number) == str(number)
 
-def test_fizz() -> None:
-    assert fizzbuzz(3) == "Fizz"
-    assert fizzbuzz(6) == "Fizz"
-    assert fizzbuzz(13) == "Fizz"
+@pytest.mark.parametrize("number", [3, 6, 9, 13, 23, 31])
+def test_fizz(number) -> None:
+    assert fizzbuzz(number) == "Fizz"
 
-def test_buzz() -> None:
-    assert fizzbuzz(5) == "Buzz"
-    assert fizzbuzz(10) == "Buzz"
-    assert fizzbuzz(52) == "Buzz"
+@pytest.mark.parametrize("number", [5, 10, 52])
+def test_buzz(number) -> None:
+    assert fizzbuzz(number) == "Buzz"
 
-def test_fizzbuzz() -> None:
-    assert fizzbuzz(15) == "FizzBuzz"
-    assert fizzbuzz(51) == "FizzBuzz"
+@pytest.mark.parametrize("number", [15, 51])
+def test_fizzbuzz(number) -> None:
+    assert fizzbuzz(number) == "FizzBuzz"
 
-def test_wozz():
-    assert fizzbuzz(7) == "Wozz"
-    assert fizzbuzz(71) == "Wozz"
+@pytest.mark.parametrize("number", [7, 71])
+def test_wozz(number):
+    assert fizzbuzz(number) == "Wozz"
 
-def test_buzzwozz():
-    assert fizzbuzz(70) == "BuzzWozz"
-    assert fizzbuzz(140) == "BuzzWozz"
+@pytest.mark.parametrize("number", [70, 140])
+def test_buzzwozz(number):
+    assert fizzbuzz(number) == "BuzzWozz"
 
-def test_fizzbuzzwozz():
-    assert fizzbuzz(75) == "FizzBuzzWozz"
-    assert fizzbuzz(375) == "FizzBuzzWozz"
+@pytest.mark.parametrize("number", [75, 375])
+def test_fizzbuzzwozz(number):
+    assert fizzbuzz(number) == "FizzBuzzWozz"

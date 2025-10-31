@@ -1,32 +1,23 @@
-from abc import ABC, abstractmethod
+import dataclasses
 from typing import Sequence
 
+@dataclasses.dataclass
+class Rule:
+    divisor: int
+    word: str
 
-def fizzbuzz(number: int):
-    rules: Sequence[Rule] = [
-        WordRule(3, "Fizz"),
-        WordRule(5, "Buzz"),
-        WordRule(7, "Wozz"),
-        DefaultRule(),
-    ]
+    def apply(self, number: int) -> str:
+        return self.word if number % self.divisor == 0 or str(self.divisor) in str(number) else ""
+
+default_rules: Sequence[Rule] = (
+    Rule(divisor=3, word="Fizz"),
+    Rule(divisor=5, word="Buzz"),
+    Rule(divisor=7, word="Wozz"),
+)
+
+def fizzbuzz(number: int, rules: Sequence[Rule] = default_rules):
     result = ""
     for rule in rules:
-        result += rule.apply(number, result)
-    return result
+        result += rule.apply(number)
+    return result if result != "" else str(number)
 
-class Rule(ABC):
-    @abstractmethod
-    def apply(self, number: int, result: str) -> str:
-        pass
-
-class WordRule(Rule):
-    def __init__(self, number: int, word: str) -> None:
-        self.number = number
-        self.word = word
-
-    def apply(self, number: int, result: str) -> str:
-        return self.word if number % self.number == 0 or str(self.number) in str(number) else ""
-
-class DefaultRule(Rule):
-    def apply(self, number: int, result: str) -> str:
-        return str(number) if result == "" else ""
